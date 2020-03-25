@@ -6,6 +6,11 @@ installer jieba pour le processing des fichiers en chinois
 pip install jieba
 ```
 
+# Instruction pour télécharger les vidéos en RAW via YouTube
+```
+python download_video.py ./JSON_file_VATEX ./output_dir
+```
+
 ## Instructions pour pré-process les fichiers
 Attention à la structure des dossiers !
 
