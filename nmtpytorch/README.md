@@ -89,3 +89,4 @@ Modèle implémentant l'architecture "encoder-decoder" [du papier MCAN](https://
 * dropout_sa: 0.0 # dropout du self attention
 * num_sa_layers: 6 # Nombre de couche encoder et decoder
 * n_head: 4 # Nombre de tête du multi-head attention
+* flat_mlp_size: 320 #taille intermédiaire dans le mlp du attention_flatten
