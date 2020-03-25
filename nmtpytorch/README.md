@@ -71,11 +71,18 @@ Modèle avec self-attention sur le texte lors de l'encodage et utilisation du d�
 
 [Exemple de fichier de configuration](https://github.com/YnsOzt/umons_mnmt/blob/master/nmtpytorch/examples/TXT_Self_Attention.conf)
 
+
+### AttentiveMNMTFeaturesSASGA
+Modèle implémentant l'architecture "encoder-decoder" [du papier MCAN](https://arxiv.org/pdf/1906.10770.pdf)
+  pour encoder et le décodeur TRGMUL + attention_flatten
+
+[Exemple de fichier de configuration](https://github.com/YnsOzt/umons_mnmt/blob/master/nmtpytorch/examples/SA_SGA.conf)
+
 ### AttentiveMNMTFeaturesSASGATRGMUL
 Modèle implémentant l'architecture "encoder-decoder" [du papier MCAN](https://arxiv.org/pdf/1906.10770.pdf)
   pour encoder et le décodeur TRGMUL + attention_flatten
 
-[Exemple de fichier de configuration](https://github.com/YnsOzt/umons_mnmt/blob/master/nmtpytorch/examples/TXT_Self_Attention_TRGMUL.conf)
+[Exemple de fichier de configuration](https://github.com/YnsOzt/umons_mnmt/blob/master/nmtpytorch/examples/SA_SGA_TRGMUL.conf)
 
 ### Options lors de l'utilisation du self-attention
 * ff_dim: 640 # Taille du FF layer
