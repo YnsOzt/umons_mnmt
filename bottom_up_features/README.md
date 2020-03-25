@@ -43,4 +43,9 @@ This code implements an extraction of Bottom-up image features ([paper](https://
                                 --max_boxes nb_max_box
                                 [--boxes]
     ```
-
+- image_dir : Nom du dossier contenant les images
+- out_file_name : Nom du fichier de sortie .npy
+- extraction_order_file : Fichier contenant l'ordre des vidéos à extraire
+- min_boxes : Nombre min de box
+- min_boxes : Nombre max de box
+- boxes : Permet de sauvegarder les boundings boxes
