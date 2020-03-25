@@ -74,7 +74,7 @@ Modèle avec self-attention sur le texte lors de l'encodage et utilisation du d�
 
 ### AttentiveMNMTFeaturesSASGA
 Modèle implémentant l'architecture "encoder-decoder" [du papier MCAN](https://arxiv.org/pdf/1906.10770.pdf)
-  pour encoder et le décodeur TRGMUL + attention_flatten
+  pour encoder utilisation du décodeur multimodal avec attention sur l'image + texte
 
 [Exemple de fichier de configuration](https://github.com/YnsOzt/umons_mnmt/blob/master/nmtpytorch/examples/SA_SGA.conf)
 
