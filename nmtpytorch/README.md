@@ -84,9 +84,15 @@ Modèle implémentant l'architecture "encoder-decoder" [du papier MCAN](https://
 
 [Exemple de fichier de configuration](https://github.com/YnsOzt/umons_mnmt/blob/master/nmtpytorch/examples/SA_SGA_TRGMUL.conf)
 
-### Options lors de l'utilisation du self-attention
+### Options supplémentaires dans le fichier de configuration
+* configuration du self-attention
+```
 * ff_dim: 640 # Taille du FF layer
 * dropout_sa: 0.0 # dropout du self attention
 * num_sa_layers: 6 # Nombre de couche encoder et decoder
 * n_head: 4 # Nombre de tête du multi-head attention
+```
+* configuration de l'attention_flatten
+```
 * flat_mlp_size: 320 #taille intermédiaire dans le mlp du attention_flatten
+```
