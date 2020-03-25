@@ -10,12 +10,7 @@ This code implements an extraction of Bottom-up image features ([paper](https://
 **Note:** CPU version is not supported.
 
 ## Installation
-1. Clone the code:
-    ```
-    git clone https://github.com/violetteshev/bottom-up-features.git
-    ```
-
-2. Install PyTorch with pip:
+1. Install PyTorch with pip:
     ```
     pip install https://download.pytorch.org/whl/cu90/torch-0.4.0-cp36-cp36m-linux_x86_64.whl
     ```
@@ -24,18 +19,18 @@ This code implements an extraction of Bottom-up image features ([paper](https://
     conda install pytorch=0.4.0 cuda90 -c pytorch
     ```
 
-3. Install dependencies:
+2. Install dependencies:
     ```
     pip install -r requirements.txt
     ```
 
-4. Compile the code:
+3. Compile the code:
     ```
     cd lib
     sh make.sh
     ```
 
-5. Download the pretrained model from [dropbox](https://www.dropbox.com/s/qo4xf1dx3oxi1h6/bottomup_pretrained_10_100.pth?dl=0) or [google drive](https://drive.google.com/file/d/10MBUgH_OygyEys59FNQ4qNGeQ9bl-ODb/view?usp=drivesdk) and put it in models/ folder.
+4. Download the pretrained model from [dropbox](https://www.dropbox.com/s/qo4xf1dx3oxi1h6/bottomup_pretrained_10_100.pth?dl=0) or [google drive](https://drive.google.com/file/d/10MBUgH_OygyEys59FNQ4qNGeQ9bl-ODb/view?usp=drivesdk) and put it in models/ folder.
 
 ## Feature Extraction
 
