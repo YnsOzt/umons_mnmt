@@ -7,6 +7,8 @@ pip install jieba
 ```
 
 ## Instructions pour pré-process les fichiers
+Attention à la structure des dossier !
+
 0) création des données brut:
     - python dataset_creator.py ./data/base_dataset/vatex_public_test_without_annotations.json ./data/texts/raw/test
     - python dataset_creator.py ./data/base_dataset/vatex_validation_v1.0.json ./data/texts/raw/val
