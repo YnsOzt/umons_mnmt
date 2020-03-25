@@ -85,6 +85,12 @@ Modèle implémentant l'architecture "encoder-decoder" [du papier MCAN](https://
 [Exemple de fichier de configuration](https://github.com/YnsOzt/umons_mnmt/blob/master/nmtpytorch/examples/SA_SGA_TRGMUL.conf)
 
 ### Options supplémentaires dans le fichier de configuration
+* Lors de l'utilisation des features nécessitant la normalisation
+```
+* l2_norm: True #Si bottom-up mettre à true
+* l2_norm_dim: -1
+```
+
 * configuration du self-attention
 ```
 * ff_dim: 640 # Taille du FF layer
