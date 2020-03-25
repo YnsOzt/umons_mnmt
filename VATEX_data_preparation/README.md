@@ -1,5 +1,10 @@
 # VATEX_data_preparation
 Repository permettant la création des datasets VATEX pour pouvoir l'intégrer dans nmtpytorch et également télécharger les vidéos en RAW via Youtube
+## pré-requis
+installer jieba pour le processing des fichiers en chinois
+```
+pip install jieba
+```
 
 ## Instructions pour pré-process les fichiers
 0) création des données brut:
