@@ -5,3 +5,5 @@ Ce repository contient 2 sous-repository.
 Ce repository contient le code pour pouvoir extraire les features bottom-up
 ## nmtpytorch
 Ce repository contient le code nmtpytorch avec certains modèles en plus.
+## VATEX_data_preparation
+Ce repository contient les scripts pour pouvoir crée les datasets VATEX
