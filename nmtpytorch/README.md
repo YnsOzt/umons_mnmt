@@ -49,6 +49,6 @@ Modèle avec attention simple sur l'image (features préextraite) et le texte
 [Exemple de fichier de configuration](https://github.com/YnsOzt/umons_mnmt/blob/master/nmtpytorch/examples/simple_attention_txt_img.conf)
 
 ### AttentiveMNMTFeaturesTRGMUL
-Modèle avec attention simple sur le texte et introduction des features visuelles via TRGMUL ([lien vers le papier](https://arxiv.org/pdf/1707.04481.pdf?fbclid=IwAR2U9oS5z3SzVUdH0aLvyEQt36-cl_MaVGT3AThqOfXPaAslr8_LUC_YlmU)
+Modèle avec attention simple sur le texte et introduction des features visuelles via TRGMUL ([lien vers le papier])(https://arxiv.org/pdf/1707.04481.pdf?fbclid=IwAR2U9oS5z3SzVUdH0aLvyEQt36-cl_MaVGT3AThqOfXPaAslr8_LUC_YlmU)
 
 [Exemple de fichier de configuration](https://github.com/YnsOzt/umons_mnmt/blob/master/nmtpytorch/examples/TRGMUL.conf)
