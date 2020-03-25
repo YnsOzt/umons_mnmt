@@ -41,6 +41,6 @@ This code implements an extraction of Bottom-up image features ([paper](https://
                                 --extraction_order_file ./fichier_alignement_video
                                 --min_boxes nb_min_box
                                 --max_boxes nb_max_box
-                                [--boxes] (pour sauver les boundings boxes)
+                                [--boxes]
     ```
 
