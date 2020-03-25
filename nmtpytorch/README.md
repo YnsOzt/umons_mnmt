@@ -49,13 +49,13 @@ Modèle avec attention simple sur l'image (features préextraite) et le texte
 [Exemple de fichier de configuration](https://github.com/YnsOzt/umons_mnmt/blob/master/nmtpytorch/examples/simple_attention_txt_img.conf)
 
 ### AttentiveMNMTFeaturesTRGMUL
-Modèle avec attention simple sur le texte et introduction des features visuelles via TRGMUL ([lien vers le papier](https://arxiv.org/pdf/1707.04481.pdf?fbclid=IwAR2U9oS5z3SzVUdH0aLvyEQt36-cl_MaVGT3AThqOfXPaAslr8_LUC_YlmU))
+Modèle avec attention simple sur le texte et introduction des features visuelles via [TRGMUL](https://arxiv.org/pdf/1707.04481.pdf?fbclid=IwAR2U9oS5z3SzVUdH0aLvyEQt36-cl_MaVGT3AThqOfXPaAslr8_LUC_YlmU)
 
 [Exemple de fichier de configuration](https://github.com/YnsOzt/umons_mnmt/blob/master/nmtpytorch/examples/TRGMUL.conf)
 
 
 ### AttentiveMNMTFeaturesCTXMUL
-Modèle avec attention simple sur le texte et introduction des features visuelles via CTXMUL ([lien vers le papier](https://arxiv.org/pdf/1707.04481.pdf?fbclid=IwAR2U9oS5z3SzVUdH0aLvyEQt36-cl_MaVGT3AThqOfXPaAslr8_LUC_YlmU))
+Modèle avec attention simple sur le texte et introduction des features visuelles via [CTXMUL](https://arxiv.org/pdf/1707.04481.pdf?fbclid=IwAR2U9oS5z3SzVUdH0aLvyEQt36-cl_MaVGT3AThqOfXPaAslr8_LUC_YlmU)
 
 [Exemple de fichier de configuration](https://github.com/YnsOzt/umons_mnmt/blob/master/nmtpytorch/examples/TRGMUL.conf)
 
@@ -65,8 +65,8 @@ Modèle avec self-attention sur le texte et utilisation du décodeur TRGMUL
 [Exemple de fichier de configuration](https://github.com/YnsOzt/umons_mnmt/blob/master/nmtpytorch/examples/TXT_Self_Attention.conf)
 
 ### AttentiveMNMTFeaturesSASGATRGMUL
-Modèle implémentant l'architecture "encoder-decoder" du papier MCAN  pour encoder et le décodeur TRGMUL([lien vers le papier](https://arxiv.org/pdf/1906.10770.pdf))
-
+Modèle implémentant l'architecture "encoder-decoder" [du papier MCAN](https://arxiv.org/pdf/1906.10770.pdf)
+  pour encoder et le décodeur TRGMUL
 
 [Exemple de fichier de configuration](https://github.com/YnsOzt/umons_mnmt/blob/master/nmtpytorch/examples/SA_SGA_TRGMUL.conf)
 
