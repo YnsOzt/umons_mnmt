@@ -69,7 +69,7 @@ Modèle avec self-attention sur le texte lors de l'encodage et utilisation du d�
 ### AttentiveMNMTFeaturesSATRGMUL
 Modèle avec self-attention sur le texte lors de l'encodage et utilisation du décodeur TRGMUL + attention_flatten
 
-[Exemple de fichier de configuration](https://github.com/YnsOzt/umons_mnmt/blob/master/nmtpytorch/examples/TXT_Self_Attention.conf)
+[Exemple de fichier de configuration](hhttps://github.com/YnsOzt/umons_mnmt/blob/master/nmtpytorch/examples/TXT_Self_Attention_TRGMUL.conf)
 
 
 ### AttentiveMNMTFeaturesSASGA
