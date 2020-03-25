@@ -36,10 +36,11 @@ This code implements an extraction of Bottom-up image features ([paper](https://
 
 1. To extract image features and store them in .npy format:
     ```
-    python extract_features.py --image_dir images --out_dir features
+    python3 extract_features.py --image_dir ./raw_image_folder
+                                --out_file_name name_of_out_file
+                                --extraction_order_file ./fichier_alignement_video
+                                --min_boxes nb_min_box
+                                --max_boxes nb_max_box
+                                [--boxes] (pour sauver les boundings boxes)
     ```
 
-2. To save bounding boxes use `--boxes` argument:
-    ```
-    python extract_features.py --image_dir images --out_dir features --boxes
-    ```
