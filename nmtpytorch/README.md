@@ -42,3 +42,7 @@ If you use **nmtpytorch**, you may want to cite the following [paper](https://uf
 4) nmtpy-install-extra
 
 ## Modèles
+
+### AttentiveMNMTFeatures
+Modèle avec attention simple sur l'image et le texte
+[Exemple de fichier de configuration](https://github.com/YnsOzt/umons_mnmt/blob/master/nmtpytorch/examples/simple_attention_txt_img.conf)
