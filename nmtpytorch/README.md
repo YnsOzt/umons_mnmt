@@ -59,14 +59,15 @@ Modèle avec attention simple sur le texte et introduction des features visuelle
 
 [Exemple de fichier de configuration](https://github.com/YnsOzt/umons_mnmt/blob/master/nmtpytorch/examples/TRGMUL.conf)
 
-### AttentiveMNMTFeaturesSATRGMUL
-Modèle avec self-attention sur le texte lors de l'encodage et utilisation du décodeur TRGMUL + attention_flatten
+
+### AttentiveMNMTFeaturesSA
+Modèle avec self-attention sur le texte lors de l'encodage et utilisation du décodeur multimodal avec attention sur l'image + texte
 
 [Exemple de fichier de configuration](https://github.com/YnsOzt/umons_mnmt/blob/master/nmtpytorch/examples/TXT_Self_Attention.conf)
 
 
-### AttentiveMNMTFeaturesSA
-Modèle avec self-attention sur le texte lors de l'encodage et utilisation du décodeur multimodal avec attention sur l'image + texte
+### AttentiveMNMTFeaturesSATRGMUL
+Modèle avec self-attention sur le texte lors de l'encodage et utilisation du décodeur TRGMUL + attention_flatten
 
 [Exemple de fichier de configuration](https://github.com/YnsOzt/umons_mnmt/blob/master/nmtpytorch/examples/TXT_Self_Attention.conf)
 
@@ -74,7 +75,7 @@ Modèle avec self-attention sur le texte lors de l'encodage et utilisation du d�
 Modèle implémentant l'architecture "encoder-decoder" [du papier MCAN](https://arxiv.org/pdf/1906.10770.pdf)
   pour encoder et le décodeur TRGMUL + attention_flatten
 
-[Exemple de fichier de configuration](https://github.com/YnsOzt/umons_mnmt/blob/master/nmtpytorch/examples/SA_SGA_TRGMUL.conf)
+[Exemple de fichier de configuration](https://github.com/YnsOzt/umons_mnmt/blob/master/nmtpytorch/examples/TXT_Self_Attention_TRGMUL.conf)
 
 ### Options lors de l'utilisation du self-attention
 * ff_dim: 640 # Taille du FF layer
