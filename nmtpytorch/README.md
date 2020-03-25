@@ -60,13 +60,13 @@ Modèle avec attention simple sur le texte et introduction des features visuelle
 [Exemple de fichier de configuration](https://github.com/YnsOzt/umons_mnmt/blob/master/nmtpytorch/examples/TRGMUL.conf)
 
 ### AttentiveMNMTFeaturesSATRGMUL
-Modèle avec self-attention sur le texte et utilisation du décodeur TRGMUL 
+Modèle avec self-attention sur le texte et utilisation du décodeur TRGMUL + attention_flatten
 
 [Exemple de fichier de configuration](https://github.com/YnsOzt/umons_mnmt/blob/master/nmtpytorch/examples/TXT_Self_Attention.conf)
 
 ### AttentiveMNMTFeaturesSASGATRGMUL
 Modèle implémentant l'architecture "encoder-decoder" [du papier MCAN](https://arxiv.org/pdf/1906.10770.pdf)
-  pour encoder et le décodeur TRGMUL
+  pour encoder et le décodeur TRGMUL + attention_flatten
 
 [Exemple de fichier de configuration](https://github.com/YnsOzt/umons_mnmt/blob/master/nmtpytorch/examples/SA_SGA_TRGMUL.conf)
 
