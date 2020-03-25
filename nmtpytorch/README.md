@@ -42,3 +42,36 @@ If you use **nmtpytorch**, you may want to cite the following [paper](https://uf
 4) nmtpy-install-extra
 
 ## Modèles
+
+### AttentiveMNMTFeatures
+Modèle avec attention simple sur l'image (features préextraite) et le texte
+
+[Exemple de fichier de configuration](https://github.com/YnsOzt/umons_mnmt/blob/master/nmtpytorch/examples/simple_attention_txt_img.conf)
+
+### AttentiveMNMTFeaturesTRGMUL
+Modèle avec attention simple sur le texte et introduction des features visuelles via [TRGMUL](https://arxiv.org/pdf/1707.04481.pdf?fbclid=IwAR2U9oS5z3SzVUdH0aLvyEQt36-cl_MaVGT3AThqOfXPaAslr8_LUC_YlmU)
+
+[Exemple de fichier de configuration](https://github.com/YnsOzt/umons_mnmt/blob/master/nmtpytorch/examples/TRGMUL.conf)
+
+
+### AttentiveMNMTFeaturesCTXMUL
+Modèle avec attention simple sur le texte et introduction des features visuelles via [CTXMUL](https://arxiv.org/pdf/1707.04481.pdf?fbclid=IwAR2U9oS5z3SzVUdH0aLvyEQt36-cl_MaVGT3AThqOfXPaAslr8_LUC_YlmU)
+
+[Exemple de fichier de configuration](https://github.com/YnsOzt/umons_mnmt/blob/master/nmtpytorch/examples/TRGMUL.conf)
+
+### AttentiveMNMTFeaturesSATRGMUL
+Modèle avec self-attention sur le texte et utilisation du décodeur TRGMUL 
+
+[Exemple de fichier de configuration](https://github.com/YnsOzt/umons_mnmt/blob/master/nmtpytorch/examples/TXT_Self_Attention.conf)
+
+### AttentiveMNMTFeaturesSASGATRGMUL
+Modèle implémentant l'architecture "encoder-decoder" [du papier MCAN](https://arxiv.org/pdf/1906.10770.pdf)
+  pour encoder et le décodeur TRGMUL
+
+[Exemple de fichier de configuration](https://github.com/YnsOzt/umons_mnmt/blob/master/nmtpytorch/examples/SA_SGA_TRGMUL.conf)
+
+### Options lors de l'utilisation du self-attention
+* ff_dim: 640 # Taille du FF layer
+* dropout_sa: 0.0 # dropout du self attention
+* num_sa_layers: 6 # Nombre de couche encoder et decoder
+* n_head: 4 # Nombre de tête du multi-head attention
