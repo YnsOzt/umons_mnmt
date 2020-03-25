@@ -40,3 +40,5 @@ If you use **nmtpytorch**, you may want to cite the following [paper](https://uf
 2) cd nmtpytorch
 3) python setup.py develop
 4) nmtpy-install-extra
+
+## Modèles
