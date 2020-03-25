@@ -37,9 +37,8 @@ If you use **nmtpytorch**, you may want to cite the following [paper](https://uf
 
 ## Installation
 1) pip install nmtpytorch
-2) cd nmtpytorch
-3) python setup.py develop
-4) nmtpy-install-extra
+2) python setup.py develop
+3) nmtpy-install-extra
 
 ## Modèles
 
