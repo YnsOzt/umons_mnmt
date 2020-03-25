@@ -2,13 +2,13 @@
 Repository permettant la création des datasets VATEX pour pouvoir l'intégrer dans nmtpytorch et également télécharger les vidéos en RAW via Youtube
 
 ## Instructions pour pré-process les fichiers
-0) lancer dataset_creator.py:
+0) création des données brut:
     - python dataset_creator.py ./data/base_dataset/vatex_public_test_without_annotations.json ./data/texts/raw/test
     - python dataset_creator.py ./data/base_dataset/vatex_validation_v1.0.json ./data/texts/raw/val
     - python dataset_creator.py ./data/base_dataset/vatex_training_v1.0.json ./data/texts/raw/train
 
 
-1) aller dans le dossier data_creation
+1) rester dans le dossier VATEX_data_preparation
 	- bash scripts/vatex-tokenize.sh
 	- EN BPE:
 	  subword-nmt learn-bpe -s 10000 -i ./data/texts/tok/train.lc.norm.tok.en -o ./data/texts/bpe10k/en_code
