@@ -21,7 +21,7 @@ mkdir -p $TOK &> /dev/null
 ##############################
 # Preprocess files in parallel
 ##############################
-for TYPE in "train" "val"; do
+for TYPE in "train" "val" "test"; do
   INP="${RAW}/${TYPE}.en"
   OUT="${TOK}/${TYPE}.${SUFFIX}.en"
   if [ -f $INP ] && [ ! -f $OUT ]; then
