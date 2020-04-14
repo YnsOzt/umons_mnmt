@@ -16,12 +16,16 @@ output_filename = sys.argv[2]
 
 if("test" in input_filename): #if file just export the video
 	video_file = output_filename+".video"
+	en_file = output_filename+".en"
 	with open(video_file, 'w') as vid_f:
-		with open(input_filename, 'r') as original_dataset:
-			json_dict = json.load(original_dataset)
-			for item in json_dict:
-				video_id = item['videoID']
-				vid_f.write(video_id+"\n")
+		with open(en_file, 'w') as en_f:
+			with open(input_filename, 'r') as original_dataset:
+				json_dict = json.load(original_dataset)
+				for item in json_dict:
+					video_id = item['videoID']
+					en_txt = item['enCap'][5::]
+					[vid_f.write(video_id+"\n") for _ in range(5)]
+					[en_f.write(txt+"\n") for txt in en_txt]
 
 else: #train + val
 	en_file = output_filename+".en"
