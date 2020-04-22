@@ -6,6 +6,12 @@
 3) nmtpy-install-extra
 
 ## Données
+### Bottom-up features
+[Lien](https://drive.google.com/open?id=1_GRCkKv-E83QhsleukbM0mUpIg144V5J) vers les bottom-up feats (10 boxes)
+
+* 10_boxes ==> dossier contenant les bottom up feats avec 10 box pour le train / test et val
+* 36_boxes ==> dossier contenant les bottom up feats avec 36 box pour le train / test et val
+
 ### VATEX
 #### VMT
 [Lien](https://drive.google.com/open?id=1F84VDIsVVPxGlBc3g2SnxpBGebojy_Vv) vers les données de video machine translation
