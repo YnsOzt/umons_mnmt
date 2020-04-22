@@ -9,7 +9,8 @@ from .amnmt_sa_sga import AttentiveMNMTFeaturesSASGA
 from .amnmt_sa_sga_trgmul import AttentiveMNMTFeaturesSASGATRGMUL
 from .amnmt_sa_trgmul import AttentiveMNMTFeaturesSATRGMUL
 from .amnmt_txt_sa import AttentiveMNMTFeaturesTXTSA
-
+from .VMT import VMT
+from .IMT import IMT
 # Speech models
 from .asr import ASR
 

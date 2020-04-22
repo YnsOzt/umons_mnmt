@@ -4,13 +4,11 @@ import logging
 import torch
 import torch.nn.functional as F
 import torch.nn as nn
-from ..layers import TextEncoder, ConditionalMMDecoderTRGMUL, MCANED
+from ..layers import TextEncoder, ConditionalMMDecoderTRGMUL, SASGA
 from ..datasets import MultimodalDataset
 from .nmt import NMT
-from ..layers import MCANED
 
 from ..layers import AttentionFlatten
-
 
 logger = logging.getLogger('nmtpytorch')
 
@@ -45,7 +43,7 @@ class AttentiveMNMTFeaturesSASGATRGMUL(NMT):
     def reset_parameters(self):
         for name, param in self.named_parameters():
             if param.requires_grad and 'bias' not in name and 'norm' not in name and "enc_list" not in name and "dec_list" not in name and "attflat_img" not in name:
-                #print(name)
+                # print(name)
                 nn.init.kaiming_normal(param.data)
 
     def __init__(self, opts):
@@ -59,7 +57,7 @@ class AttentiveMNMTFeaturesSASGATRGMUL(NMT):
         else:
             enc_dim = self.opts.model['enc_dim']
 
-        self.ctx_sizes = {str(self.sl): enc_dim, 'image': enc_dim } 
+        self.ctx_sizes = {str(self.sl): enc_dim, 'image': enc_dim}
 
         self.imgfeat2hidden = nn.Linear(self.opts.model['n_channels'], enc_dim)
 
@@ -82,15 +80,15 @@ class AttentiveMNMTFeaturesSASGATRGMUL(NMT):
         ########################
         # Create ENC-DEC
         ########################
-        self.mcan_ed = MCANED(hidden_size=enc_dim,
-                              n_head=self.opts.model['n_head'],
-                              ff_size=self.opts.model['ff_dim'],
-                              num_layers=self.opts.model['num_sa_layers'],
-                              dropout=self.opts.model['dropout_sa'])
+        self.sa_sga = SASGA(hidden_size=enc_dim,
+                            n_head=self.opts.model['n_head'],
+                            ff_size=self.opts.model['ff_dim'],
+                            num_layers=self.opts.model['num_sa_layers'],
+                            dropout=self.opts.model['dropout_sa'])
 
-        #attention flatten
-        self.attflat_img = AttentionFlatten(self.ctx_sizes['image'], self.opts.model['flat_mlp_size'], 1, self.ctx_sizes['image'])  
-
+        # attention flatten
+        self.attflat_img = AttentionFlatten(self.ctx_sizes['image'], self.opts.model['flat_mlp_size'], 1,
+                                            self.ctx_sizes['image'])
 
         # Create Decoder
         self.dec = ConditionalMMDecoderTRGMUL(
@@ -148,16 +146,17 @@ class AttentiveMNMTFeaturesSASGATRGMUL(NMT):
                 img_feats, dim=self.opts.model['l2_norm_dim']).detach()
 
         img_feats = self.imgfeat2hidden(img_feats)  # transform images to the hidden size
+
         txt_enc_res = self.text_enc(batch[self.sl])
-        
+
         lang_feats = txt_enc_res[0]
         lang_feats_mask = txt_enc_res[1]
-        
-        # enc-dec
-        lang_feats, img_feats = self.mcan_ed(lang_feats, img_feats, lang_feats_mask, img_feats_mask)
 
-        img_feats = self.attflat_img(img_feats.transpose(0,1), img_feats_mask).unsqueeze(0)
-        
+        # enc-dec
+        lang_feats, img_feats = self.sa_sga(lang_feats, img_feats, lang_feats_mask, img_feats_mask)
+
+        img_feats = self.attflat_img(img_feats.transpose(0, 1), img_feats_mask).unsqueeze(0)
+
         return {
             'image': (img_feats, img_feats_mask),
             str(self.sl): (lang_feats, lang_feats_mask),

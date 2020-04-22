@@ -4,10 +4,9 @@ import logging
 import torch
 import torch.nn.functional as F
 import torch.nn as nn
-from ..layers import TextEncoder, ConditionalMMDecoder, MCANED
+from ..layers import TextEncoder, ConditionalMMDecoder, SASGA
 from ..datasets import MultimodalDataset
 from .nmt import NMT
-from ..layers import MCANED
 
 logger = logging.getLogger('nmtpytorch')
 
@@ -41,7 +40,7 @@ class AttentiveMNMTFeaturesSASGA(NMT):
     def reset_parameters(self):
         for name, param in self.named_parameters():
             if param.requires_grad and 'bias' not in name and 'norm' not in name and "enc_list" not in name and "dec_list" not in name:
-                #print(name)
+                # print(name)
                 nn.init.kaiming_normal(param.data)
 
     def __init__(self, opts):
@@ -54,7 +53,7 @@ class AttentiveMNMTFeaturesSASGA(NMT):
             enc_dim = self.opts.model['enc_dim'] * 2
         else:
             enc_dim = self.opts.model['enc_dim']
-        self.ctx_sizes = {str(self.sl): enc_dim, 'image': enc_dim } #initialized here ?
+        self.ctx_sizes = {str(self.sl): enc_dim, 'image': enc_dim}  # initialized here ?
 
         self.imgfeat2hidden = nn.Linear(self.opts.model['n_channels'], enc_dim)
 
@@ -77,11 +76,11 @@ class AttentiveMNMTFeaturesSASGA(NMT):
         ########################
         # Create ENC-DEC
         ########################
-        self.mcan_ed = MCANED(hidden_size=enc_dim,
-                              n_head=self.opts.model['n_head'],
-                              ff_size=self.opts.model['ff_dim'],
-                              num_layers=self.opts.model['num_sa_layers'],
-                              dropout=self.opts.model['dropout_sa'])
+        self.sa_sga = SASGA(hidden_size=enc_dim,
+                            n_head=self.opts.model['n_head'],
+                            ff_size=self.opts.model['ff_dim'],
+                            num_layers=self.opts.model['num_sa_layers'],
+                            dropout=self.opts.model['dropout_sa'])
 
         # Create Decoder
         self.dec = ConditionalMMDecoder(
@@ -140,13 +139,13 @@ class AttentiveMNMTFeaturesSASGA(NMT):
 
         img_feats = self.imgfeat2hidden(img_feats)  # transform images to the hidden size
         txt_enc_res = self.text_enc(batch[self.sl])
-        
+
         lang_feats = txt_enc_res[0]
         lang_feats_mask = txt_enc_res[1]
-        
+
         # enc-dec
-        lang_feats, img_feats = self.mcan_ed(lang_feats, img_feats, lang_feats_mask, img_feats_mask)
-        
+        lang_feats, img_feats = self.sa_sga(lang_feats, img_feats, lang_feats_mask, img_feats_mask)
+
         return {
             'image': (img_feats, img_feats_mask),
             str(self.sl): (lang_feats, lang_feats_mask),
