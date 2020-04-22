@@ -69,13 +69,6 @@
 * decoder_type: simple | trgmul # default = simple
 ```
 
-
-* Lors de l'utilisation des features nécessitant la normalisation
-```
-* l2_norm: True #Si bottom-up feats mettre à true
-* l2_norm_dim: -1
-```
-
 * Lors de l'utilisation du self attention et guided attention
 ```
 * ff_dim: 640 # Taille du FF layer
@@ -87,5 +80,12 @@
 * configuration de l'attention_flatten (utilisé lorsque nous utilisons un décodeur TRGMUL)
 ```
 * flat_mlp_size: 320 #taille intermédiaire dans le mlp du attention_flatten
+```
+
+
+* Lors de l'utilisation des features nécessitant la normalisation
+```
+* l2_norm: True #Si bottom-up feats mettre à true
+* l2_norm_dim: -1
 ```
 
