@@ -58,7 +58,7 @@
 
 [Fichier config](https://github.com/YnsOzt/umons_mnmt/blob/master/nmtpytorch/examples/IMT.conf)
 
-### Options disponibles
+### Options disponibles pour la traduction
 * Modifier l'encodeur:
 ```
 * encoder_type: simple | sa | sasga # default = simple
@@ -89,3 +89,6 @@
 * l2_norm_dim: -1
 ```
 
+### Video Captionning
+
+[Fichier config](https://github.com/YnsOzt/umons_mnmt/blob/master/nmtpytorch/examples/VIC.conf)
