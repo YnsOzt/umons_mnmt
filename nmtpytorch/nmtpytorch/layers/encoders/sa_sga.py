@@ -3,7 +3,7 @@ import torch.nn as nn
 from .. import SelfAttention
 from .. import SGuidedAttention
 
-class MCANED(nn.Module):
+class SASGA(nn.Module):
     def __init__(self, hidden_size, n_head=8, ff_size=2048, num_layers=6, dropout=0.1):
         super().__init__()
 

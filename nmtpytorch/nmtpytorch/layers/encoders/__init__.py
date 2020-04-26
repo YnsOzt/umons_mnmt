@@ -4,5 +4,5 @@ from .text import TextEncoder
 from .text_sa import SATextEncoder
 from .bilstmp import BiLSTMp
 from .text_ctxmul import TextEncoderCTXMUL
-from .mcan_ed import MCANED
+from .sa_sga import SASGA
 
