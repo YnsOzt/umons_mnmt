@@ -39,21 +39,22 @@ class TextEncoder(nn.Module):
             is returned if batch contains only sentences with same lengths.
     """
     def __init__(self, input_size, hidden_size, n_vocab, rnn_type,
-                 num_layers=1, bidirectional=True,
+                 lstm_num_layers=1, bidirectional=True,
                  dropout_rnn=0, dropout_emb=0, dropout_ctx=0,
-                 emb_maxnorm=None, emb_gradscale=False):
+                 emb_maxnorm=None, emb_gradscale=False, n_channels=1024, **kwargs):
         super().__init__()
 
         self.rnn_type = rnn_type.upper()
         self.input_size = input_size
         self.hidden_size = hidden_size
         self.n_vocab = n_vocab
-        self.num_layers = num_layers
+        self.lstm_num_layers = lstm_num_layers
         self.bidirectional = bidirectional
         self.emb_maxnorm = emb_maxnorm
         self.emb_gradscale = emb_gradscale
+        self.n_channels = n_channels
 
-        # For dropout btw layers, only effective if num_layers > 1
+        # For dropout btw layers, only effective if lstm_num_layers > 1
         self.dropout_rnn = dropout_rnn
 
         # Our other custom dropouts after embeddings and annotations
@@ -78,17 +79,17 @@ class TextEncoder(nn.Module):
         # Create fused/cudnn encoder according to the requested type
         RNN = getattr(nn, self.rnn_type)
         self.enc = RNN(self.input_size, self.hidden_size,
-                       self.num_layers, bias=True, batch_first=False,
+                       self.lstm_num_layers, bias=True, batch_first=False,
                        dropout=self.dropout_rnn,
                        bidirectional=self.bidirectional)
 
-    def forward(self, x):
+    def forward(self, x, y, y_mask):
         if (x == 0).nonzero().size():
-            return self.forward_mixed_len_batches(x)
-        else:
-            return self.forward_same_len_batches(x)
+            return self.forward_mixed_len_batches(x, y, y_mask)
+        else: #assume we never go here
+            return self.forward_same_len_batches(x, y, y_mask)
 
-    def forward_same_len_batches(self, x):
+    def forward_same_len_batches(self, x, y, y_mask):
         # Fetch embeddings
         embs = self.emb(x)
 
@@ -102,9 +103,9 @@ class TextEncoder(nn.Module):
             hs = self.do_ctx(hs)
 
         # No mask is returned as batch contains elements of all same lengths
-        return hs, None
+        return hs, None, y, y_mask
 
-    def forward_mixed_len_batches(self, x):
+    def forward_mixed_len_batches(self, x, y, y_mask):
         # sort the batch by decreasing length of sequences
         # oidxs: to recover original order
         # sidxs: idxs to sort the batch

@@ -4,11 +4,12 @@ from collections import OrderedDict
 from . import metrics
 from .utils.filterchain import FilterChain
 from .utils.misc import get_language
-
+from pathlib import Path
 
 class Evaluator(object):
     def __init__(self, refs, beam_metrics, filters=''):
         # metrics: list of upper-case beam-search metrics
+        refs = Path(refs)
         self.kwargs = {}
         self.scorers = OrderedDict()
         self.refs = list(refs.parent.glob(refs.name))

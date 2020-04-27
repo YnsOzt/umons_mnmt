@@ -187,7 +187,7 @@ def setup_experiment(opts, suffix=None, short=False):
 
     # Create folders
     folder = pathlib.Path(opts.train['save_path']) / opts.train['subfolder']
-    #folder.mkdir(parents=True, exist_ok=True)
+    folder.mkdir(parents=True, exist_ok=True)
 
     # Set random experiment ID
     run_id = time.strftime('%Y%m%d%H%m%S') + str(random.random())
