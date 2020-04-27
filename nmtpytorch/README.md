@@ -18,6 +18,8 @@
 #### VMT
 [Lien](https://drive.google.com/open?id=1F84VDIsVVPxGlBc3g2SnxpBGebojy_Vv) vers les données de video machine translation
 
+[Lien](https://drive.google.com/open?id=1-L5YOl7v1ddmEn7_Cm6CqJ1g_gzkMc3f) vers le zip
+
 * features visuelles : ./data/videos/pre_extracted
   * train_reshaped.npy ==> contient les données d'entraînement correctement reshaped pour nmtpytorch
   * val_reshaped.npy ==> contient les données de validation correctement reshaped pour nmtpytorch
