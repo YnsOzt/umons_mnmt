@@ -1,3 +1,3 @@
 from .nmt import NMT
-from .IMT import IMT
+from .MMT import MMT
 from .VIC import VIC

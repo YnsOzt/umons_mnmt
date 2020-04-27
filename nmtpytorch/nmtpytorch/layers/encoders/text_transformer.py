@@ -24,7 +24,7 @@ class TextTransformer(TextEncoder):
                 [SelfAttention(self.ctx_size, self.n_head, self.ff_dim, self.dropout_sa) for _ in
                  range(self.trans_num_layers)])
 
-        #adapter
+        #  Adapter
         if use_sga or use_sa_y:
             self.adapter = nn.Linear(self.n_channels, self.ctx_size)
             self.n_channels = self.ctx_size

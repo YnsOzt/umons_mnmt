@@ -13,7 +13,7 @@ from ..layers import AttentionFlatten
 logger = logging.getLogger('nmtpytorch')
 
 
-class IMT(NMT):
+class MMT(NMT):
     """An end-to-end sequence-to-sequence NMT model with visual attention over
     pre-extracted convolutional features + normalization of the feats.
     """
@@ -66,10 +66,14 @@ class IMT(NMT):
                 and self.opts.model['decoder_type'] in ('trgmul'):
             raise Exception("Need use_attflat for dec 1D using viz features > 1D")
 
+        if self.opts.model['use_attflat'] and self.opts.model['decoder_type'] in ('normal'):
+            raise Exception("Can use attflat with dec > 1D")
+
         # Viz dim and encoder dim check
         if not self.opts.model['img_sequence'] \
                 and (self.opts.model['use_sa_y'] or self.opts.model['use_sga'] or self.opts.model['use_attflat']):
             raise Exception("Can use SA, SGA, attflat on 1D viz features")
+
 
     def setup(self, is_train=True):
 
@@ -77,6 +81,8 @@ class IMT(NMT):
         encoder_class = TextEncoder
         if self.opts.model['use_sa_x'] or self.opts.model['use_sa_y'] or self.opts.model['use_sga']:
             encoder_class = TextTransformer
+
+        # Decoder definition
         decoder_class = ConditionalMMDecoder
         if self.opts.model['decoder_type'] in ('trgmul'):
             decoder_class = ConditionalMMDecoderTRGMUL
@@ -110,7 +116,7 @@ class IMT(NMT):
         self.ctx_sizes = {str(self.sl): self.text_enc.ctx_size, 'image': self.text_enc.n_channels}
 
         # Decoder
-        self.dec = ConditionalMMDecoder(
+        self.dec = decoder_class(
             input_size=self.opts.model['emb_dim'],
             hidden_size=self.opts.model['dec_dim'],
             n_vocab=self.n_trg_vocab,
