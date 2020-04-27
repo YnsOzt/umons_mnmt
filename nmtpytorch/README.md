@@ -35,8 +35,8 @@
   * train.bpe.vocab.ch ==> vocab CH
 
 
-#### IC
-[Lien](https://drive.google.com/open?id=1tPP6SQGMku8O4MPzosPE4HWOhzvlaeK6) vers les données d'image captionning
+#### VIC
+[Lien](https://drive.google.com/open?id=1tPP6SQGMku8O4MPzosPE4HWOhzvlaeK6) vers les données de video captionning
 
 * features visuelles : ./data/videos/pre_extracted
   * train_reshaped.npy ==> contient les données d'entraînement correctement reshaped pour nmtpytorch
