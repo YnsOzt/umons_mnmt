@@ -7,7 +7,9 @@
 
 ## Données
 ### Bottom-up features
-[Lien](https://drive.google.com/open?id=1_GRCkKv-E83QhsleukbM0mUpIg144V5J) vers les bottom-up feats (10 boxes)
+[Lien](https://drive.google.com/open?id=1_GRCkKv-E83QhsleukbM0mUpIg144V5J) vers les bottom-up feats (10 et 36 boxes)
+
+[Lien](https://drive.google.com/open?id=1vgk8IUB7CPn1sqe6lk1nqkhxESCkPdlC) vers le zip
 
 * 10_boxes ==> dossier contenant les bottom up feats avec 10 box pour le train / test et val
 * 36_boxes ==> dossier contenant les bottom up feats avec 36 box pour le train / test et val
