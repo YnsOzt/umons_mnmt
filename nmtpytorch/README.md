@@ -38,6 +38,8 @@
 #### VIC
 [Lien](https://drive.google.com/open?id=1tPP6SQGMku8O4MPzosPE4HWOhzvlaeK6) vers les données de video captionning
 
+[Lien](https://drive.google.com/open?id=1EgtAtI_DbHyVRfSoywb8ziXrfee6Xu7s) vers le zip
+
 * features visuelles : ./data/videos/pre_extracted
   * train_reshaped.npy ==> contient les données d'entraînement correctement reshaped pour nmtpytorch
   * val_reshaped.npy ==> contient les données de validation correctement reshaped pour nmtpytorch
